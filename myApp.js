@@ -1,7 +1,13 @@
 require('dotenv').config();
 let mongoose = require('mongoose');
 
-let Person;
+let personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  favoriteFoods: [String]
+});
+
+let Person = mongoose.model('Person', personSchema);
 
 var mongoUri = process.env.MONGO_URI;
 
