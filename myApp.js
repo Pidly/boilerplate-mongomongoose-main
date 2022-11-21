@@ -77,7 +77,7 @@ const findPersonById = (personId, done) => {
 };
 
 const findEditThenSave = (personId, done) => {
-  Person.update({_id: personId}, (err, person) => {
+  Person.findById(personId, (err, person) => {
     if (err) {
       return console.log(err);
     }
