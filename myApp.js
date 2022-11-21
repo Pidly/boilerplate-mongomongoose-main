@@ -40,13 +40,19 @@ const createManyPeople = (arrayOfPeople, done) => {
     if (err) {
       return console.error(err);
     }
-    
+
     done(null, people);
   });
 };
 
+let personName = "Penny";
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  Model.find({name: personName}, (err, person) => {
+    if (err) {
+      return console.error(err);
+    }
+    done(null, person);
+  })
 };
 
 const findOneByFood = (food, done) => {
