@@ -51,12 +51,21 @@ const findPeopleByName = (personName, done) => {
     if (err) {
       return console.error(err);
     }
+    console.log(person);
     done(null, person);
   })
 };
 
+let food = "Coconut";
+
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  Person.findOne({favoriteFoods: food}, (err, person) => {
+    if (err) {
+      return console.error(err);
+    }
+    console.log(person);
+    done(null, person);
+  })
 };
 
 const findPersonById = (personId, done) => {
